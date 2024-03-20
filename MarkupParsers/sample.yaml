@@ -1,0 +1,106 @@
+# Sample YAML file
+
+# Personal Information
+name: John Doe
+age: 30
+occupation: Software Developer
+is_student: false
+salary: 75000.50
+
+# Contact Information
+contact:
+  email: john.doe@example.com
+  phone:
+    home: "555-1234"
+    work: "555-5678"
+  address:
+    street: 123 Main St
+    city: Anytown
+    state: CA
+    zip: "12345"
+
+# Skills
+skills:
+  - Java
+  - Python
+  - JavaScript
+  - "C++"
+
+# Projects
+projects:
+  - name: Project A
+    description: A web application
+    technologies:
+      - Java
+      - Spring Boot
+      - React
+  - name: Project B
+    description: Mobile app
+    technologies:
+      - Kotlin
+      - Android SDK
+
+# Education
+education:
+  - institution: University of Example
+    degree: Bachelor of Science
+    major: Computer Science
+    year: 2015
+  - institution: Online Learning Platform
+    courses:
+      - Machine Learning
+      - Data Structures
+      - Algorithms
+
+# Additional Information
+languages:
+  - English: fluent
+  - Spanish: intermediate
+  - French: beginner
+
+hobbies:
+  - reading
+  - hiking
+  - photography
+
+# Multiline text examples
+about_me: |
+  I am a passionate software developer with a keen interest in
+  building scalable and efficient applications. I enjoy learning
+  new technologies and solving complex problems.
+
+favorite_quote: >
+  The only way to do great work is to love what you do.
+  If you haven't found it yet, keep looking. Don't settle.
+
+# Complex nested structure
+work_experience:
+  current_job:
+    company: Tech Innovations Inc.
+    position: Senior Developer
+    start_date: 2020-01-15
+    responsibilities:
+      - Lead development team
+      - Architect software solutions
+      - Code review and mentoring
+  previous_jobs:
+    - company: StartUp Solutions
+      position: Junior Developer
+      duration:
+        start: 2017-06-01
+        end: 2019-12-31
+    - company: IT Consulting Firm
+      position: Intern
+      duration:
+        start: 2016-05-01
+        end: 2017-05-31
+
+# Null value example
+current_project: null
+
+# Boolean values
+available_for_hire: true
+remote_work_only: false
+
+# Timestamp
+last_updated: 2023-06-15T14:30:00Z
