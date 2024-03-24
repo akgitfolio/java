@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Client</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #messageArea {
+            height: 300px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        #messageInput {
+            width: 70%;
+            padding: 5px;
+        }
+        #sendButton {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>WebSocket Client</h1>
+<div id="messageArea"></div>
+<input type="text" id="messageInput" placeholder="Type a message...">
+<button id="sendButton">Send</button>
+
+<script>
+    const socket = new WebSocket('ws://localhost:8887');
+    const messageArea = document.getElementById('messageArea');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+
+    function addMessage(message) {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = message;
+        messageArea.appendChild(messageElement);
+        messageArea.scrollTop = messageArea.scrollHeight;
+    }
+
+    socket.onopen = function(event) {
+        addMessage('Connected to WebSocket server');
+    };
+
+    socket.onmessage = function(event) {
+        addMessage('Received: ' + event.data);
+    };
+
+    socket.onclose = function(event) {
+        addMessage('WebSocket connection closed');
+    };
+
+    socket.onerror = function(error) {
+        addMessage('WebSocket error: ' + error.message);
+    };
+
+    sendButton.onclick = function() {
+        const message = messageInput.value;
+        if (message) {
+            socket.send(message);
+            addMessage('Sent: ' + message);
+            messageInput.value = '';
+        }
+    };
+
+    messageInput.onkeypress = function(event) {
+        if (event.keyCode === 13) { // Enter key
+            sendButton.click();
+        }
+    };
+</script>
+</body>
+</html>
