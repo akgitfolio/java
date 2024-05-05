@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vert.x Chat Client</title>
+</head>
+<body>
+<div id="chat-box" style="height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px;"></div>
+<input type="text" id="username" placeholder="Your username">
+<input type="text" id="message" placeholder="Type a message">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+        const socket = new WebSocket('ws://localhost:8010');
+        const chatBox = document.getElementById('chat-box');
+
+        socket.onmessage = function(event) {
+            const message = JSON.parse(event.data);
+            chatBox.innerHTML += `<p><strong>${message.username}:</strong> ${message.text}</p>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        };
+
+        function sendMessage() {
+            const username = document.getElementById('username').value;
+            const message = document.getElementById('message').value;
+            if (username && message) {
+                socket.send(JSON.stringify({ username: username, text: message }));
+                document.getElementById('message').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
