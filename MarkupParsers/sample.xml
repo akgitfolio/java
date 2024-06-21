@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <person id="1">
+        <name>John Doe</name>
+        <age>30</age>
+        <address>
+            <street>123 Main St</street>
+            <city>Anytown</city>
+        </address>
+    </person>
+    <person id="2">
+        <name>Jane Smith</name>
+        <age>25</age>
+        <address>
+            <street>456 Elm St</street>
+            <city>Othertown</city>
+        </address>
+    </person>
+    <notes>
+        <note>First note</note>
+        <note>Second note</note>
+
+    </notes>
+</root>
